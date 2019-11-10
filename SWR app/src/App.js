@@ -2,6 +2,8 @@ import React from "react";
 
 import { Header } from "./components/Header/index";
 
+import WeatherBody from "./components/WeatherBody/index";
+
 import "./styles/styles.css";
 
 function App() {
@@ -10,6 +12,7 @@ function App() {
       <div className="headerContainer">
         <Header />
       </div>
+      <WeatherBody />
     </div>
   );
 }
