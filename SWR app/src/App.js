@@ -13,6 +13,7 @@ function App() {
         <Header />
       </div>
       <WeatherBody />
+      {/* Added a Comment */}
     </div>
   );
 }
