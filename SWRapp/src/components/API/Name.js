@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../../styles/name.scss";
+
 class Name extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +10,7 @@ class Name extends React.Component {
     const { city, country } = this.props;
     return (
       <div>
-        <div>{`${city}, ${country}`}</div>
+        <div className="location">{`${city}, ${country}`}</div>
       </div>
     );
   }
