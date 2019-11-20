@@ -23,7 +23,7 @@ function WeatherBody() {
       {/* {<Name />
       <Temp />
       <Date />} */}
-      {data.main}
+      {data}
     </div>
   );
 }
