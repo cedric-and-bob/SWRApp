@@ -7,6 +7,8 @@ import Temp from "../API/Temp";
 
 import "../../styles/styles.css";
 
+import "../../styles/weatherBody.scss";
+
 const fetcher = url => fetch(url).then(r => r.json());
 
 function WeatherBody() {
@@ -19,7 +21,7 @@ function WeatherBody() {
   if (!data) return <div>loading...</div>;
   console.log(data);
   return (
-    <div>
+    <div className="weatherBody">
       <Name city={data.name} country={data.sys.country} />
       <Temp temp={data.main.temp} />
       <Date />
