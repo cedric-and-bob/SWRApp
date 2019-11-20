@@ -2,16 +2,19 @@ import React from "react";
 
 class Date extends React.Component {
   render() {
-    var options = {
+    let options = {
       weekday: "long",
       year: "numeric",
       month: "long",
       day: "numeric"
     };
-    var today = new Date();
+    let today = new Date();
+
+    let actualToday = today.toLocaleDateString("en-US", options);
+
     return (
       <div>
-        <div>{today.toLocaleDateString("en-US", options)}</div>
+        <div>{actualToday}</div>
       </div>
     );
   }
