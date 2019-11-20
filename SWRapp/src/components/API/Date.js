@@ -8,9 +8,8 @@ class Date extends React.Component {
       month: "long",
       day: "numeric"
     };
-    let today = new Date();
 
-    let actualToday = today.toLocaleDateString("en-US", options);
+    let actualToday = Intl.DateTimeFormat("en-US", options);
 
     return (
       <div>
