@@ -10,7 +10,7 @@ class Date extends React.Component {
     };
     var date = new Date();
 
-    let actualToday = Intl.DateTimeFormat("en-US", options).format(date);
+    let actualToday = date.DateTimeFormat("en-US", options);
 
     return (
       <div>
