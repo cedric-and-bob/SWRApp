@@ -17,7 +17,7 @@ function WeatherBody() {
 
   if (error) return <div>{console.log(error)}</div>;
   if (!data) return <div>loading...</div>;
-  console.log({ data });
+  console.log(data);
   return (
     <div>
       {/* {<Name />
