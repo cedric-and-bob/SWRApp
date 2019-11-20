@@ -1,10 +1,14 @@
 import React from "react";
 
 class Temp extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const { temp } = this.props;
     return (
       <div>
-        <div></div>
+        <div>{temp}</div>
       </div>
     );
   }
