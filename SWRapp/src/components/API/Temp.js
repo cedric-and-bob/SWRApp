@@ -1,6 +1,6 @@
 import React from "react";
 
-class Date extends React.Component {
+class Temp extends React.Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class Date extends React.Component {
   }
 }
 
-export default Date;
+export default Temp;

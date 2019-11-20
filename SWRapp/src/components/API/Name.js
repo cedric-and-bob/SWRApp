@@ -1,6 +1,6 @@
 import React from "react";
 
-class Temp extends React.Component {
+class Name extends React.Component {
   render() {
     return (
       <div>
@@ -10,4 +10,4 @@ class Temp extends React.Component {
   }
 }
 
-export default Temp;
+export default Name;
