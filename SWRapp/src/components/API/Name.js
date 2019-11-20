@@ -1,13 +1,19 @@
 import React from "react";
 
-class Temp extends React.Component {
+import "../../styles/name.scss";
+
+class Name extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
+    const { city, country } = this.props;
     return (
       <div>
-        <div></div>
+        <div className="location">{`${city}, ${country}`}</div>
       </div>
     );
   }
 }
 
-export default Temp;
+export default Name;
