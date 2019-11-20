@@ -15,15 +15,14 @@ function WeatherBody() {
     fetcher
   );
 
-  if (error) return <div>{console.log(error)}</div>;
+  if (error) return <div>{error}</div>;
   if (!data) return <div>loading...</div>;
   console.log(data);
   return (
     <div>
-      {/* {<Name />
-      <Temp />
-      <Date />} */}
-      {data.main.temp}
+      <Name city={data.name} country={data.sys.country} />
+      <Temp temp={data.main.temp} />
+      <Date />
     </div>
   );
 }
