@@ -1,10 +1,7 @@
 import React from "react";
-import useSWR from "swr";
 import { geolocated } from "react-geolocated";
 
-import Name from "../API/Name";
-import Date from "../API/Date";
-import Temp from "../API/Temp";
+import GeoLoc from "../WeatherGeoBody/index";
 
 import "../../styles/styles.css";
 
@@ -12,14 +9,17 @@ import "../../styles/weatherBody.scss";
 
 class WeatherBody extends React.Component {
   render() {
-    return <div className="weatherBody"></div>;
+    return (
+      <div className="weatherBody">
+        {this.props.coords && this.props.coords.latitude}
+        <GeoLoc {...this.props} />
+      </div>
+    );
   }
 }
-const WeatherBodywithGeoLoc = geolocated({
+export default geolocated({
   positionOptions: {
     enableHighAccuracy: false
   },
-  userDecisionTimeout: 100000
+  userDecisionTimeout: 5000
 })(WeatherBody);
-
-export default WeatherBodywithGeoLoc;
