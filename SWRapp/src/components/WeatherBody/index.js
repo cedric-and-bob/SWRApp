@@ -11,7 +11,6 @@ class WeatherBody extends React.Component {
   render() {
     return (
       <div className="weatherBody">
-        {this.props.coords && this.props.coords.latitude}
         <GeoLoc {...this.props} />
       </div>
     );
