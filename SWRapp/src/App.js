@@ -2,7 +2,7 @@ import React from "react";
 
 import { Header } from "./components/Header/index";
 
-import WeatherBody from "./components/WeatherBody/index";
+import WeatherBodywithGeoLoc from "./components/WeatherBody/index";
 
 import "./styles/styles.css";
 
@@ -12,7 +12,7 @@ function App() {
       <div className="headerContainer">
         <Header />
       </div>
-      <WeatherBody />
+      <WeatherBodywithGeoLoc />
       {/* Added a Comment */}
     </div>
   );
