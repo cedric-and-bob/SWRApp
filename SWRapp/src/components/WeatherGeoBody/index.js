@@ -19,9 +19,11 @@ const y =
 
   parseFloat(139.01).toFixed(2);
 
-function Geoloc() {
+function Geoloc(props) {
+  const { isGeolocationAvailable, isGeolocationEnabled, coords } = props;
+
   const { data, error } = useSWR(
-    `https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22/main`,
+    `https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/weather?lat=${x}&lon=${y}&appid=b6907d289e10d714a6e88b30761fae22/main`,
     fetcher
   );
 
@@ -29,11 +31,11 @@ function Geoloc() {
   if (!data) return <div>loading...</div>;
   console.log(data);
 
-  return !this.props.isGeolocationAvailable ? (
+  return !isGeolocationAvailable ? (
     <div>Your browser does not support Geolocation</div>
-  ) : !this.props.isGeolocationEnabled ? (
+  ) : !isGeolocationEnabled ? (
     <div>Geolocation is not enabled</div>
-  ) : this.props.coords ? (
+  ) : coords ? (
     <div className="weatherBody">
       <Name city={data.name} country={data.sys.country} />
       <Temp temp={data.main.temp} />
