@@ -25,6 +25,7 @@ class Temp extends React.Component {
           {Celsius(temp)}
           <span className="deg">&deg;C</span>
         </div>
+        <p className="outside">Outside</p>
       </div>
     );
   }
