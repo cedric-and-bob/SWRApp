@@ -15,7 +15,7 @@ class Date extends React.Component {
 
     return (
       <div className="date">
-        <div className="dateTime">Today is {date}, and it will be </div>
+        <div className="dateTime">Today is {date}, and it is </div>
       </div>
     );
   }
