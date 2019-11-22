@@ -30,7 +30,7 @@ function Geoloc(props) {
   ) : !isGeolocationEnabled ? (
     <div>Geolocation is not enabled</div>
   ) : coords ? (
-    <div className="weatherBody">
+    <div className="body">
       <Name city={data.name} country={data.sys.country} />
       <Date />
       <Temp temp={data.main.temp} />

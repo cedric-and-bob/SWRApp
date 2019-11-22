@@ -1,5 +1,16 @@
 .weatherBody {
-  height: 100vh;
+  height: 89%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 11%;
+}
+
+.body {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

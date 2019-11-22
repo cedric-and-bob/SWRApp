@@ -1,5 +1,11 @@
 .App {
-  height: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  flex-wrap: nowrap;
+  align-content: center;
+  align-items: center;
 }
 sup {
   vertical-align: super;
@@ -14,7 +20,7 @@ sup {
   flex-direction: row;
   justify-content: space-around;
   background-color: #edf2f7;
-  height: 15vh;
+  height: 11%;
   position: fixed;
   width: 100%;
   top: 0px;
