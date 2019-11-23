@@ -63,33 +63,34 @@ function StationsGeoLoc(props) {
         <p>This data is less than a minute old</p>
       </div>
       {console.log("!!!!!", match.url)}
-
-      <Route path="/weather-alt">
-        <h2>Please choose a city below</h2>
-      </Route>
+      <section className="subNavigation">
+        <Route path="/weather-alt">
+          <h2>Please choose a location below</h2>
+          {data.observations.location.map((station, idx) => (
+            <li key={idx}>
+              <NavLink to={`${match.url}/${idx}`}>{station.city}</NavLink>
+            </li>
+          ))}
+        </Route>
+      </section>
       <Route
         path={`${match.url}/:id`}
         render={props => {
           console.log(props);
           return (
             <>
+              <Date {/* Gives acces to react router props*/ ...props} />
               <Stations
                 data={data.observations.location[props.match.params.id]}
                 {
                   /* Gives acces to react router props*/ ...props
                 }
               />
-              <Date {/* Gives acces to react router props*/ ...props} />
             </>
           );
         }}
       />
 
-      {data.observations.location.map((station, idx) => (
-        <li key={idx}>
-          <NavLink to={`${match.url}/${idx}`}>{station.city}</NavLink>
-        </li>
-      ))}
       {/* Use this for Text only content <Route path="/weather-alt/:id" component={Stations} /> */}
     </div>
   ) : (
