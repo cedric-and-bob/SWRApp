@@ -19,8 +19,12 @@ function App() {
         <Header />
       </div>
       <Switch>
-        <Route exact path="/weather" render={() => <WeatherPageView />} />
-        <Route exact path="/weather-alt" render={() => <WeatherPageAlt />} />
+        <Route exact path="/weather">
+          <WeatherPageView />
+        </Route>
+        <Route path="/weather-alt">
+          <WeatherPageAlt />
+        </Route>
         {/* <Route exact path="/" render={() => <LandingPageView />} /> */}
         {/* <Route exact path="/" render={() => <WeatherPageView />} /> */}
       </Switch>
