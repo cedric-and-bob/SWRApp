@@ -21,9 +21,16 @@ class Temp extends React.Component {
     return (
       <div>
         <div className="temperature">
-          <span className="deg">{Fahrenheit(temp)}&deg;F</span> <br></br>{" "}
-          {Celsius(temp)}
-          <span className="deg">&deg;C</span>
+          <h2>
+            <span className="deg">
+              {Fahrenheit(temp)}
+              <sup>&deg;F</sup>
+            </span>
+            /{Celsius(temp)}
+            <span className="deg">
+              <sup>&deg;C</sup>
+            </span>
+          </h2>
         </div>
         <p className="outside">Outside</p>
       </div>
