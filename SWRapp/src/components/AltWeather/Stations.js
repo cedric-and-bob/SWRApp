@@ -10,8 +10,8 @@ class Stations extends Component {
 
     return (
       <div className="stations">
-        <Location city={city} state={state} />
-        <Temp temp={observation[0].temperature} />
+        <Location city={city} state={state} {...this.props.data} />
+        <Temp temp={observation[0].temperature} {...this.props.data} />
       </div>
     );
   }
