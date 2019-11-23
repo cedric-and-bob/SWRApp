@@ -13,6 +13,9 @@ export const Header = props => {
       <Link to="/weather" className="link">
         Weather
       </Link>
+      <Link to="/weather-alt" className="link">
+        Weather Alt Page
+      </Link>
       <Link to="/traffic" className="link">
         Traffic
         <sup>
