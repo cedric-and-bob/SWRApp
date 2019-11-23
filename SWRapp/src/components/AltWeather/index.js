@@ -6,6 +6,7 @@ import StationsGeoLoc from "../AltWeather/StationsGeoLoc";
 
 class AltWeather extends React.Component {
   render() {
+    console.log(this.props);
     return (
       <SWRConfig
         value={{
