@@ -16,6 +16,7 @@ import Date from "./Date";
 import Stations from "./Stations";
 
 import "../../styles/altWeather.scss";
+import paramCase from "param-case";
 
 const fetcher = url => fetch(url).then(r => r.json(), console.log(url));
 
@@ -51,7 +52,7 @@ function StationsGeoLoc(props) {
   if (error) return <div>{error.msg}</div>;
   if (!data) return <div>loading...</div>;
   console.log(data);
-
+  console.log(match);
   return !isGeolocationAvailable ? (
     <div>Your browser does not support Geolocation</div>
   ) : !isGeolocationEnabled ? (
@@ -61,61 +62,39 @@ function StationsGeoLoc(props) {
       <div className="banner">
         <p>This data is less than a minute old</p>
       </div>
+      {console.log("!!!!!", match.url)}
 
-      <Switch>
-        <Route exact path="/weather-alt">
-          <h2>Please choose a city below</h2>
-        </Route>
-        <Route path={`/weather-alt/:id`} component={Stations}>
-          <Date />
-        </Route>
-      </Switch>
+      <Route path="/weather-alt">
+        <h2>Please choose a city below</h2>
+      </Route>
+      <Route
+        path={`${match.url}/:id`}
+        render={props => {
+          console.log(props);
+          return (
+            <>
+              <Stations
+                data={data.observations.location[props.match.params.id]}
+                {
+                  /* Gives acces to react router props*/ ...props
+                }
+              />
+              <Date {/* Gives acces to react router props*/ ...props} />
+            </>
+          );
+        }}
+      />
+
       {data.observations.location.map((station, idx) => (
         <li key={idx}>
-          <NavLink to={`/${match.url}/${idx}`}>{station.city}</NavLink>
+          <NavLink to={`${match.url}/${idx}`}>{station.city}</NavLink>
         </li>
       ))}
-      <Route path="/weather-alt/:id" component={Stations} />
-      <Route path={`${match.path}/:id`} component={Stations} />
+      {/* Use this for Text only content <Route path="/weather-alt/:id" component={Stations} /> */}
     </div>
   ) : (
     <div>Getting the location data&hellip; </div>
   );
-
-  function StationsComponent({ match }) {
-    const altWeatherState = data.observations.location.map((station, idx) => (
-      <Stations
-        city={station.city}
-        state={station.state}
-        temp={station.observation[0].temperature}
-        key={idx}
-        id={idx}
-      />
-    ));
-    const station = altWeatherState.find(({ id }) => id === match.params.Id);
-
-    return (
-      <div>
-        <h2>{station.city}</h2>
-        <p>{station.state}</p>
-
-        {/* 
-          This bit of code will be useful incase I ever want to display data WITHIN a particular cities displayed component, such as weather warnings, pictures, etcetera.
-    
-          <ul>
-            {topic.resources.map(sub => (
-              <li key={sub.id}>
-                <Link to={`${match.url}/${sub.id}`}>{sub.name}</Link>
-              </li>
-            ))}
-          </ul> 
-    
-          <hr />
-    
-          <Route path={`${match.path}/:subId`} component={Resource} />*/}
-      </div>
-    );
-  }
 }
 const StationsWithRouter = withRouter(StationsGeoLoc);
 export default StationsWithRouter;
