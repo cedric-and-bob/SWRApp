@@ -2,7 +2,9 @@ import React from "react";
 
 import { Header } from "./components/Header/index";
 
-import WeatherBodywithGeoLoc from "./components/WeatherBody/index";
+import { Route, Switch } from "react-router-dom";
+
+import { WeatherPageView } from "./views/index";
 
 import "./styles/styles.css";
 
@@ -12,8 +14,12 @@ function App() {
       <div className="headerContainer">
         <Header />
       </div>
-      <WeatherBodywithGeoLoc />
-      {/* Added a Comment */}
+      <Switch>
+        <Route exact path="/weather" render={() => <WeatherPageView />} />
+        {/* <Route exact path="/" render={() => <WeatherPageView />} />
+        <Route exact path="/" render={() => <WeatherPageView />} />
+        <Route exact path="/" render={() => <WeatherPageView />} /> */}
+      </Switch>
     </div>
   );
 }
