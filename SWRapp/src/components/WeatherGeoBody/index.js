@@ -1,9 +1,9 @@
 import React from "react";
 import useSWR from "swr";
 
-import Name from "../API/Name";
-import Date from "../API/Date";
-import Temp from "../API/Temp";
+import Name from "../WeatherAPI/Name";
+import Date from "../WeatherAPI/Date";
+import Temp from "../WeatherAPI/Temp";
 
 import "../../styles/styles.css";
 
@@ -13,9 +13,9 @@ const fetcher = url => fetch(url).then(r => r.json(), console.log(url));
 
 function Geoloc(props) {
   const { isGeolocationAvailable, isGeolocationEnabled, coords } = props;
-  const x = parseFloat(coords && coords.latitude).toFixed(2);
+  const x = parseFloat(coords && coords.latitude).toFixed(8);
 
-  const y = parseFloat(coords && coords.longitude).toFixed(2);
+  const y = parseFloat(coords && coords.longitude).toFixed(8);
   const { data, error } = useSWR(
     `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=${x}&lon=${y}&appid=12fd24ad521f5a05403f2e20fa834f59`,
     fetcher
