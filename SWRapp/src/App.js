@@ -12,7 +12,7 @@ import {
 
 import "./styles/styles.css";
 
-function App({ props }) {
+function App() {
   return (
     <div className="App">
       <div className="headerContainer">

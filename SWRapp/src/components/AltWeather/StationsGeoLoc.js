@@ -1,6 +1,8 @@
 import React from "react";
 import useSWR from "swr";
 
+import { withRouter } from "react-router";
+
 import {
   Switch,
   Route,
@@ -34,13 +36,14 @@ The block of code below is how I can display "sub data within a city"
 //   );
 // }
 
-function StationsGeoLoc() {
-  const { isGeolocationAvailable, isGeolocationEnabled, coords } = this.props;
-  const { match } = this.props;
+function StationsGeoLoc(props) {
+  const { isGeolocationAvailable, isGeolocationEnabled, coords } = props;
+  const { match, location, history } = props;
+  console.log(props);
   const x = parseFloat(coords && coords.latitude);
 
   const y = parseFloat(coords && coords.longitude);
-  const { data, error, isValidating } = useSWR(
+  const { data, error } = useSWR(
     `https://cors-anywhere.herokuapp.com/https://weather.api.here.com/weather/1.0/report.json?app_id=XazvXcdU6KPksgGtKdGZ&app_code=fsP8Cgo6_w6f3TBvpOu-ug&product=observation&latitude=${x}&longitude=${y}`,
     fetcher
   );
@@ -63,7 +66,7 @@ function StationsGeoLoc() {
         <Route exact path="/weather-alt">
           <h2>Please choose a city below</h2>
         </Route>
-        <Route path={`/weather-alt/:stationId`}>
+        <Route path={`/weather-alt/:id`} component={Stations}>
           <Date />
         </Route>
       </Switch>
@@ -72,7 +75,8 @@ function StationsGeoLoc() {
           <NavLink to={`/${match.url}/${idx}`}>{station.city}</NavLink>
         </li>
       ))}
-      <Route path={`${match.path}/:stationId`} component={StationsComponent} />
+      <Route path="/weather-alt/:id" component={Stations} />
+      <Route path={`${match.path}/:id`} component={Stations} />
     </div>
   ) : (
     <div>Getting the location data&hellip; </div>
@@ -85,11 +89,10 @@ function StationsGeoLoc() {
         state={station.state}
         temp={station.observation[0].temperature}
         key={idx}
+        id={idx}
       />
     ));
-    const station = altWeatherState.find(
-      ({ id }) => id === match.params.stationId
-    );
+    const station = altWeatherState.find(({ id }) => id === match.params.Id);
 
     return (
       <div>
@@ -114,5 +117,5 @@ function StationsGeoLoc() {
     );
   }
 }
-
-export default StationsGeoLoc;
+const StationsWithRouter = withRouter(StationsGeoLoc);
+export default StationsWithRouter;
