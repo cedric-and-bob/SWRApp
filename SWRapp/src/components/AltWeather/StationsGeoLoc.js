@@ -16,7 +16,6 @@ import Date from "./Date";
 import Stations from "./Stations";
 
 import "../../styles/altWeather.scss";
-import paramCase from "param-case";
 
 const fetcher = url => fetch(url).then(r => r.json(), console.log(url));
 
