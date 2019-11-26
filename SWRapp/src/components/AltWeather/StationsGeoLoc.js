@@ -36,6 +36,9 @@ The block of code below is how I can display "sub data within a city"
 //   );
 // }
 
+const UseHereAppId = process.env.APP_ID;
+const UseHereAppKey = process.env.APP_Key;
+
 function StationsGeoLoc(props) {
   const { isGeolocationAvailable, isGeolocationEnabled, coords } = props;
   const { match, location, history } = props;
