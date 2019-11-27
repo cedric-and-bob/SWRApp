@@ -12,6 +12,8 @@ import "../../styles/weatherBody.scss";
 const fetcher = url =>
   fetch(url).then(r => r.json(), console.log("Data was just recently fetched"));
 
+const UseOpenWeatherAppKey = process.env.REACT_APP_OPEN_WEATHER_MAP_ID;
+
 function Geoloc(props) {
   const { isGeolocationAvailable, isGeolocationEnabled, coords } = props;
 
@@ -20,7 +22,7 @@ function Geoloc(props) {
   const y = parseFloat(coords && coords.longitude).toFixed(8);
 
   const { data, error } = useSWR(
-    `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=${x}&lon=${y}&appid=12fd24ad521f5a05403f2e20fa834f59`,
+    `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=${x}&lon=${y}&appid=${UseOpenWeatherAppKey}`,
     // `https://cors-anywhere.herokuapp.com/https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22`,
     fetcher
   );
