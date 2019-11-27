@@ -16,7 +16,7 @@ import Date from "./Date";
 import Stations from "./Stations";
 
 import "../../styles/altWeather.scss";
-
+require("dotenv").config();
 const fetcher = url => fetch(url).then(r => r.json(), console.log(url));
 
 /*
@@ -36,8 +36,8 @@ The block of code below is how I can display "sub data within a city"
 //   );
 // }
 
-const UseHereAppId = process.env.APP_ID;
-const UseHereAppKey = process.env.APP_Key;
+const UseHereAppId = process.env.REACT_APP_HERE_ID;
+const UseHereAppKey = process.env.REACT_APP_HERE_KEY;
 
 function StationsGeoLoc(props) {
   const { isGeolocationAvailable, isGeolocationEnabled, coords } = props;
@@ -47,7 +47,7 @@ function StationsGeoLoc(props) {
 
   const y = parseFloat(coords && coords.longitude);
   const { data, error } = useSWR(
-    `https://cors-anywhere.herokuapp.com/https://weather.api.here.com/weather/1.0/report.json?app_id=XazvXcdU6KPksgGtKdGZ&app_code=fsP8Cgo6_w6f3TBvpOu-ug&product=observation&latitude=${x}&longitude=${y}`,
+    `https://cors-anywhere.herokuapp.com/https://weather.api.here.com/weather/1.0/report.json?app_id=${UseHereAppId}&app_code=${UseHereAppKey}&product=observation&latitude=${x}&longitude=${y}`,
     fetcher
   );
 
