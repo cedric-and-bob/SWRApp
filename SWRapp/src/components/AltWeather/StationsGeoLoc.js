@@ -16,7 +16,7 @@ import Date from "./Date";
 import Stations from "./Stations";
 
 import "../../styles/altWeather.scss";
-require("dotenv").config();
+
 const fetcher = url => fetch(url).then(r => r.json(), console.log(url));
 
 /*
@@ -61,18 +61,19 @@ function StationsGeoLoc(props) {
     <div>Geolocation is not enabled</div>
   ) : coords ? (
     <div className="altBody">
-      <div className="banner">
-        <p>This data is less than a minute old</p>
-      </div>
+      <div className="banner"></div>
       {console.log("!!!!!", match.url)}
       <section className="subNavigation">
         <Route path="/weather-alt">
           <h2>Please choose a location below</h2>
-          {data.observations.location.map((station, idx) => (
-            <li key={idx}>
-              <NavLink to={`${match.url}/${idx}`}>{station.city}</NavLink>
-            </li>
-          ))}
+          <sup>This data is less than a minute old</sup>
+          <div className="cityLinks">
+            {data.observations.location.map((station, idx) => (
+              <li className="cityNameLi" key={idx}>
+                <NavLink to={`${match.url}/${idx}`}>{station.city}</NavLink>
+              </li>
+            ))}
+          </div>
         </Route>
       </section>
       <Route
