@@ -1,3 +1,54 @@
 .altBody {
   padding-top: 200px;
 }
+.subNavigation {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  border: 1px solid red;
+  text-align: center;
+}
+.cityLinks {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+
+  align-items: stretch;
+
+  .cityNameLi {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: stretch;
+    width: 33%;
+    margin: 3px 0px;
+    a {
+      text-decoration: none;
+      background-color: none;
+      &:link,
+      &:visited {
+        color: #0000ff;
+      }
+      &:hover {
+        color: black;
+        text-shadow: 1px 1px 1px black;
+      }
+      // &:active {
+      //   color: black;
+      //   text-shadow: 1px 1px 1px black;
+      //   text-decoration: underline;
+      // }
+    }
+  }
+}
+
+div.cityLinks > li.cityNameLi > a:active {
+  color: red;
+  text-shadow: 1px 1px 1px black;
+  text-decoration: underline;
+}
