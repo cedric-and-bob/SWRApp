@@ -19,6 +19,9 @@ function App() {
         <Header />
       </div>
       <Switch>
+        <Route exact path="/">
+          <LandingPageView />
+        </Route>
         <Route exact path="/weather">
           <WeatherPageView />
         </Route>
