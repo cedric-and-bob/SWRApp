@@ -1,5 +1,5 @@
 .altBody {
-  padding-top: 200px;
+  padding-top: 11%;
 }
 .subNavigation {
   display: flex;
@@ -51,4 +51,17 @@ div.cityLinks > li.cityNameLi > a:active {
   color: red;
   text-shadow: 1px 1px 1px black;
   text-decoration: underline;
+}
+
+.stationBody {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.altWeatherBody {
+  height: 89%;
 }
