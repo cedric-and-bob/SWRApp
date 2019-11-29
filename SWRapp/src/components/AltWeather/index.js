@@ -4,6 +4,8 @@ import useSWR, { SWRConfig } from "swr";
 
 import StationsGeoLoc from "../AltWeather/StationsGeoLoc";
 
+import "../../styles/altWeather.scss";
+
 class AltWeather extends React.Component {
   render() {
     console.log(this.props);

@@ -81,7 +81,7 @@ function StationsGeoLoc(props) {
         render={props => {
           console.log(props);
           return (
-            <>
+            <div className="stationBody">
               <Date {/* Gives acces to react router props*/ ...props} />
               <Stations
                 data={data.observations.location[props.match.params.id]}
@@ -89,7 +89,7 @@ function StationsGeoLoc(props) {
                   /* Gives acces to react router props*/ ...props
                 }
               />
-            </>
+            </div>
           );
         }}
       />
