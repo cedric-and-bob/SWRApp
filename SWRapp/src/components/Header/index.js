@@ -16,14 +16,14 @@ export const Header = props => {
       <Link to="/weather-alt" className="link">
         Weather Alt Page
       </Link>
-      <Link to="/traffic" className="link">
+      <Link to="/" className="link">
         Traffic
         <sup>
           {" "}
           <em>Coming Soon</em>
         </sup>
       </Link>
-      <Link to="/good" className="link">
+      <Link to="/" className="link">
         Food
         <sup>
           {" "}
